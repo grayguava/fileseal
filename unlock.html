@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FileSeal — Decrypt</title>
+
+<style>
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  background:#ffffff;
+  font-family:'Space Grotesk',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+}
+
+.form {
+  --font-color: #00b78a;
+  --font-color-sub: #7e7e7e;
+  --bg-color: #ffffff;
+  --main-color: #00b78a;
+
+  padding: 20px;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  width: 280px;
+}
+
+.title {
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.title span {
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.input {
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+  font-family: "Space Grotesk"; 
+}
+
+.input::placeholder {
+  color: var(--font-color-sub); 
+}
+
+.file-wrap {
+  position: relative;
+}
+
+.file-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* THIS is the gap you want */
+  cursor: pointer;
+}
+
+.file-btn {
+  padding: 6px 12px;
+  border: 1.8px solid var(--main-color);
+  border-radius: 4px;
+  box-shadow: 2px 2px var(--main-color);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.file-name {
+  color: var(--font-color-sub);
+  font-size: 20px;
+}
+
+
+.button-confirm {
+  margin-top: 10px;
+  width: 220px;
+  height: 40px;
+  align-self: center;
+  border-radius: 5px;
+  border: 1.5px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+    font-family: "Space Grotesk";
+}
+
+.button-confirm:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+
+    
+</style>
+</head>
+
+<body>
+
+<form class="form" id="form">
+  <div class="title">
+    FileSeal<br>
+    <span>Decrypt an .fs file</span>
+  </div>
+
+ <label class="file-wrap">
+  <span class="file-btn">Choose file</span>
+  <span class="file-name" id="fileName">No file chosen</span>
+  <input type="file" id="file" hidden>
+</label>
+
+
+  <input
+    class="input"
+    type="password"
+    id="password"
+    placeholder="Enter Decryption password"
+    required
+  >
+
+  <button class="button-confirm" id="unlockBtn" type="submit">
+    Decrypt & Download →
+  </button>
+    
+    <div id="status" style="font-size:14px; min-height:1em;"></div>
+
+</form>
+
+<!-- fs-lock.js will be attached here -->
+<script src="./fs-unlock.js"></script>
+
+</body>
+</html>
